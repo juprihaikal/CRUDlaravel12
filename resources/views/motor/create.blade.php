@@ -25,14 +25,8 @@
                 </div>
             @endif
 
-            <form action="{{ route('motor.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('motor.store') }}" method="POST">
                 @csrf
-
-                {{-- Gambar --}}
-                <div class="mb-3">
-                    <label class="form-label">Gambar</label>
-                    <input type="file" name="gambar" class="form-control" required>
-                </div>
 
                 {{-- Nama --}}
                 <div class="mb-3">

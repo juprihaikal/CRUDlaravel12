@@ -25,23 +25,9 @@
                 </div>
             @endif
 
-            <form action="{{ route('motor.update', $motor->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('motor.update', $motor->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-
-                {{-- gambar lama --}}
-                <div class="mb-3 text-center">
-                    <label class="form-label d-block">Gambar Saat Ini</label>
-                    <img src="{{ asset('storage/motor/'.$motor->gambar) }}" 
-                         width="150" 
-                         class="img-thumbnail mb-2">
-                </div>
-
-                {{-- upload gambar baru --}}
-                <div class="mb-3">
-                    <label class="form-label">Ganti Gambar (Opsional)</label>
-                    <input type="file" name="gambar" class="form-control">
-                </div>
 
                 {{-- nama --}}
                 <div class="mb-3">

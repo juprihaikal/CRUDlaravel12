@@ -25,7 +25,6 @@
         <thead class="table-dark">
             <tr>
                 <th>No</th>
-                <th>Gambar</th>
                 <th>Nama Motor</th>
                 <th>Harga</th>
                 <th>Stok</th>
@@ -36,13 +35,6 @@
             @forelse ($motor as $index => $item)
                 <tr>
                     <td>{{ $index + $motor->firstItem() }}</td>
-
-                    {{-- gambar --}}
-                    <td>
-                        <img src="{{ asset('storage/motor/'.$item->gambar) }}" 
-                             width="100" 
-                             class="img-thumbnail">
-                    </td>
 
                     {{-- nama --}}
                     <td>{{ $item->nama }}</td>
@@ -72,7 +64,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6">Data motor belum ada.</td>
+                    <td colspan="5">Data motor belum ada.</td>
                 </tr>
             @endforelse
         </tbody>
