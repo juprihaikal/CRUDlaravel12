@@ -1,38 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Tambah Motor</title>
-</head>
-<body>
-
-<h2>Tambah Data Motor</h2>
-
-{{-- error --}}
-@if ($errors->any())
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-@endif
+<h1>Tambah Motor</h1>
 
 <form action="{{ route('motor.store') }}" method="POST">
-    @csrf
+@csrf
 
-    <p>Nama Motor</p>
-    <input type="text" name="nama" value="{{ old('nama') }}">
+Nama <br>
+<input type="text" name="nama"><br>
 
-    <p>Harga</p>
-    <input type="number" name="harga" value="{{ old('harga') }}">
+Harga <br>
+<input type="number" name="harga"><br>
 
-    <p>Stok</p>
-    <input type="number" name="stok" value="{{ old('stok') }}">
+Stok <br>
+<input type="number" name="stok"><br><br>
 
-    <br><br>
-
-    <a href="{{ route('motor.index') }}">Kembali</a>
-    <button type="submit">Simpan</button>
+<button>Simpan</button>
+<a href="{{ route('motor.index') }}">Kembali</a>
 </form>
-
-</body>
-</html>

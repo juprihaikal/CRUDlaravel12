@@ -1,39 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Motor</title>
-</head>
-<body>
-
-<h2>Edit Data Motor</h2>
-
-{{-- error --}}
-@if ($errors->any())
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-@endif
+<h1>Edit Motor</h1>
 
 <form action="{{ route('motor.update', $motor->id) }}" method="POST">
-    @csrf
-    @method('PUT')
+@csrf
+@method('PUT')
 
-    <p>Nama Motor</p>
-    <input type="text" name="nama" value="{{ $motor->nama }}">
+Nama <br>
+<input type="text" name="nama" value="{{ $motor->nama }}"><br>
 
-    <p>Harga</p>
-    <input type="number" name="harga" value="{{ $motor->harga }}">
+Harga <br>
+<input type="number" name="harga" value="{{ $motor->harga }}"><br>
 
-    <p>Stok</p>
-    <input type="number" name="stok" value="{{ $motor->stok }}">
+Stok <br>
+<input type="number" name="stok" value="{{ $motor->stok }}"><br><br>
 
-    <br><br>
-
-    <a href="{{ route('motor.index') }}">Kembali</a>
-    <button type="submit">Update</button>
+<button>Update</button>
+<a href="{{ route('motor.index') }}">Kembali</a>
 </form>
-
-</body>
-</html>
