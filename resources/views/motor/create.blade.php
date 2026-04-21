@@ -1,90 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Motor</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        body {
-            background-color: white;
-        }
-
-        .card {
-            border: 1px solid black;
-        }
-
-        input {
-            border: 1px solid black !important;
-        }
-
-        .btn-custom {
-            background-color: white;
-            color: black;
-            border: 1px solid black;
-            padding: 5px 10px;
-            text-decoration: none;
-        }
-
-        .btn-custom:hover {
-            background-color: black;
-            color: white;
-        }
-
-        .alert {
-            border: 1px solid black;
-            background-color: white;
-            color: black;
-        }
-    </style>
 </head>
 <body>
 
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Tambah Data Motor</h2>
+<h2>Tambah Data Motor</h2>
 
-    <div class="card">
-        <div class="card-body">
+{{-- error --}}
+@if ($errors->any())
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+@endif
 
-            {{-- tampil error --}}
-            @if ($errors->any())
-                <div class="alert">
-                    <ul class="mb-0">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+<form action="{{ route('motor.store') }}" method="POST">
+    @csrf
 
-            <form action="{{ route('motor.store') }}" method="POST">
-                @csrf
+    <p>Nama Motor</p>
+    <input type="text" name="nama" value="{{ old('nama') }}">
 
-                <div class="mb-3">
-                    <label>Nama Motor</label>
-                    <input type="text" name="nama" class="form-control" value="{{ old('nama') }}">
-                </div>
+    <p>Harga</p>
+    <input type="number" name="harga" value="{{ old('harga') }}">
 
-                <div class="mb-3">
-                    <label>Harga</label>
-                    <input type="number" name="harga" class="form-control" value="{{ old('harga') }}">
-                </div>
+    <p>Stok</p>
+    <input type="number" name="stok" value="{{ old('stok') }}">
 
-                <div class="mb-3">
-                    <label>Stok</label>
-                    <input type="number" name="stok" class="form-control" value="{{ old('stok') }}">
-                </div>
+    <br><br>
 
-                <div class="d-flex justify-content-between">
-                    <a href="{{ route('motor.index') }}" class="btn-custom">Kembali</a>
-                    <button type="submit" class="btn-custom">Simpan</button>
-                </div>
-
-            </form>
-        </div>
-    </div>
-</div>
+    <a href="{{ route('motor.index') }}">Kembali</a>
+    <button type="submit">Simpan</button>
+</form>
 
 </body>
 </html>
