@@ -5,6 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Motor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: white;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        .card {
+            border: 1px solid black;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            border: 1px solid black !important;
+        }
+
+        /* tombol hitam putih */
+        .btn-custom {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+            padding: 5px 12px;
+            text-decoration: none;
+        }
+
+        .btn-custom:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .alert {
+            border: 1px solid black;
+            background-color: white;
+            color: black;
+        }
+    </style>
 </head>
 <body>
 
@@ -16,7 +62,7 @@
 
             {{-- error validasi --}}
             @if ($errors->any())
-                <div class="alert alert-danger">
+                <div class="alert">
                     <ul class="mb-0">
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -49,8 +95,8 @@
 
                 {{-- tombol --}}
                 <div class="d-flex justify-content-between">
-                    <a href="{{ route('motor.index') }}" class="btn btn-secondary">Kembali</a>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="{{ route('motor.index') }}" class="btn-custom">Kembali</a>
+                    <button type="submit" class="btn-custom">Update</button>
                 </div>
 
             </form>
