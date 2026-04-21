@@ -79,5 +79,6 @@ http://127.0.0.1:8000/motor
 ---
 
 Nama  : Muhammad Jupri Haikal
+
 NIM   : 240180067
 Kelas : A2
